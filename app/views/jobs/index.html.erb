@@ -1,0 +1,24 @@
+<div class="d-flex mb-5">
+  <h2>求人一覧</h2>
+  <div class="ml-auto">
+    <%= link_to "新規投稿", new_job_path,class: "btn btn-primary btn-lg" %>
+  </div>
+</div>
+
+<% @jobs.each do |job| %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <div class="d-flex">
+        <p>会社名：<%= job.corporateName %></p>
+        <p class="ml-auto"><%= job.created_at %></p>
+      </div>
+      <p>仕事タイトル：<%= link_to link_to job.title, job_path(job) %></p>
+      <p>仕事詳細：<%= truncate job.description, length: 50, omission: '...' %></p>
+      <p>雇用形態：<%= job.status %>　 　想定年収：約<%= job.annualSalary %>万円</p>
+    </div>
+  </div>
+<% end %>
+
+
+
+

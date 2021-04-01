@@ -1,0 +1,41 @@
+  <div class="d-flex mb-5">
+    <h2>求人詳細</h2>
+    <div class="ml-auto">
+      <% if @job.user_id == current_user.id %>
+        <%= link_to "削除", job_path(@job), data: { confirm: "本当に削除してよろしいですか?" }, method: :delete, class: "btn btn-danger btn-lg" %>
+        <%= link_to "編集", edit_job_path(@job), class: "btn btn-primary btn-lg" %>
+      <% else %>
+        <%= link_to "応募", job_entries_path(@job), data: { confirm: "ユーザーデータが企業に送られます。応募してよろしいですか?" }, method: :post, class:"btn btn-primary btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+  
+    <div>
+      <h3 class="mb-4">求人情報</h3>
+      
+      <p class="mb-2">仕事タイトル：<%= @job.title %></p>
+      <p class="mb-2">雇用形態：<%= @job.status %></p>
+      <p class="mb-2">想定年収：<%= @job.annualSalary %></p>
+      <p class="mb-2">使用言語・フレームワーク：<%= @job.programmingLanguage %></p>
+      <p class="mb-2">歓迎スキル：<%= @job.skillset %></p>
+      <p class="mb-2">待遇・福利厚生：<%= @job.benefitProgram %></p>
+      <p class="mb-2">休日・休暇：<%= @job.holiday %></p>
+      <p class="mb-2">求める人物像：<%= @job.desiredCharacteristics %></p> 
+      <p class="mb-2">選考プロセス：<%= @job.selectionProcess %></p>
+      <p class="mb-2">勤務開始予定日：<%= @job.startingDate %></p>
+      <p class="mb-2">勤務地：<%= @job.workplace %></p>
+      <p class="mb-2">アクセス：<%= @job.access %></p>
+      <p class="mb-2">詳細情報：<%= @job.description %></p> 
+      <p class="mb-2">選考プロセス：<%= @job.selectionProcess %></p>
+    </div>
+    
+    <div>
+      <h3 class="mb-4">会社情報</h3>
+      
+      <p class="mb-2">会社名：<%= @job.corporateName %></p>
+      <p class="mb-2">会社ホームページ：<%= @job.corporateUrl %></p>
+      <p class="mb-2">業種・事業内容：<%= @job.industry %></p>
+      <p class="mb-2">本社所在地：<%= @job.address %></p> 
+      <p class="mb-2">会社紹介：<%= @job.introduction %></p>
+    </div>
+  

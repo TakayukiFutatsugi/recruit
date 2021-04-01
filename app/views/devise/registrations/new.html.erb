@@ -1,0 +1,50 @@
+<h2 class="mb-5">新規登録</h2>
+<p>*フォームは全て入力必須になります。</p>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <div class="field mb-2">
+    <%= f.label :姓 %>：<%= f.text_field :familyName %>
+    <%= f.label :名 %>：<%= f.text_field :lastName %>
+  </div>
+  
+  <div class="field mb-2">
+    <%= f.label :セイ %>：<%= f.text_field :familyNameDetail %>
+    <%= f.label :メイ %>：<%= f.text_field :lastNameDetail %>
+  </div>
+  
+  <div class="field mb-2">
+    <%= f.label :性別 %>：<%= f.select :gender, User.genders.keys, {} %>
+  </div>
+  
+  <div class="field mb-2">
+    <%= f.label :生年月日 %>：<%= f.date_select(:birthdate, start_year: 1970, end_year: Date.today.year) %>
+  </div>
+  
+  <div class="field mb-2">
+    <%= f.label :居住地 %>：<%= f.select :location, User.locations.keys, {} %>
+  </div>
+  
+  <div class="field mb-2">
+    <%= f.label :メールアドレス %>：<%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field mb-2">
+    <%= f.label :パスワード %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
+    <% end %>：
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field mb-2">
+    <%= f.label :確認用パスワード %>：<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions mb-2">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

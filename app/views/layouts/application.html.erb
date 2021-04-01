@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recruit</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!--<p class="notice"><%= notice %></p>-->
+    <!--<p class="alert"><%= alert %></p>-->
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+      <div class="container">
+        <% if user_signed_in? %>
+          <h1><%= current_user.familyName + current_user.lastName %>様</h1>
+        <% else %>
+          <h1>家賃滞納侍</h1>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <%= link_to "求人一覧", jobs_path, class: "nav-item nav-link" %>
+            <%= link_to "応募者一覧", users_path, class: "nav-item nav-link" %>
+            <%= link_to "プロフィール編集", edit_user_registration_path, class: "nav-item nav-link" %>
+            <%= link_to "お問合せ", home_index_path, class: "nav-item nav-link" %>
+            <% if user_signed_in? %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+            <% else %>
+              <%= link_to "新規登録・ログイン", user_session_path, class: "nav-item nav-link" %>
+            <% end %>
+          </div>
+        </div>  
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <p class="text-center">&copy;家賃滞納侍</p>
+  </body>
+</html>

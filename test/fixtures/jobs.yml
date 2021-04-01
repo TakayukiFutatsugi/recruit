@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  status: 1
+  annualSalary: MyString
+  programmingLanguage: MyString
+  skillset: MyString
+  benefitProgram: MyString
+  holiday: MyString
+  desiredCharacteristics: MyString
+  selectionProcess: MyString
+  startingDate: 2021-04-01
+  workplace: 1
+  access: MyString
+  description: MyText
+  corporateName: MyString
+  corporateUrl: MyString
+  industry: MyString
+  address: MyString
+  introduction: MyText
+
+two:
+  title: MyString
+  status: 1
+  annualSalary: MyString
+  programmingLanguage: MyString
+  skillset: MyString
+  benefitProgram: MyString
+  holiday: MyString
+  desiredCharacteristics: MyString
+  selectionProcess: MyString
+  startingDate: 2021-04-01
+  workplace: 1
+  access: MyString
+  description: MyText
+  corporateName: MyString
+  corporateUrl: MyString
+  industry: MyString
+  address: MyString
+  introduction: MyText

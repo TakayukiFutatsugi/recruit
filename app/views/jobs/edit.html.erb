@@ -1,0 +1,34 @@
+<h2 class="mb-5">求人情報編集</h2>
+<%= form_with model:@job do |f| %>
+  
+  <div>
+    <h3 class="mb-4">求人情報</h3>
+    
+    <div class="field mb-2"><%= f.label :仕事タイトル %>(必須)：<%= f.text_field :title %></div>
+    <div class="field mb-2"><%= f.label :雇用形態 %>(必須)：<%= f.select :status, Job.statuses.keys, {} %></div>
+    <div class="field mb-2"><%= f.label :想定年収 %>(必須)：約<%= f.text_field :annualSalary %>万円</div>
+    <div class="field mb-2"><%= f.label :使用言語・フレームワーク %>：<%= f.text_field :programmingLanguage %></div>
+    <div class="field mb-2"><%= f.label :歓迎スキル %>：<%= f.text_field :skillset %></div>
+    <div class="field mb-2"><%= f.label :待遇・福利厚生 %>(必須)：<%= f.text_field :benefitProgram %></div>
+    <div class="field mb-2"><%= f.label :休日・休暇 %>(必須)：<%= f.text_field :holiday %></div>
+    <div class="field mb-2"><%= f.label :求める人物像 %>：<%= f.text_field :desiredCharacteristics %></div>
+    <div class="field mb-2"><%= f.label :選考プロセス %>：<%= f.text_field :selectionProcess %></div>
+    <div class="field mb-2"><%= f.label :勤務開始予定日 %>：<%= f.date_select(:startingDate, start_year: Date.today.year, end_year: Date.today.year+2) %></div>
+    <div class="field mb-2"><%= f.label :勤務地 %>：<%= f.select :workplace, Job.workplaces.keys, {} %></div>
+    <div class="field mb-2"><%= f.label :アクセス %>：<%= f.text_field :access %></div>
+    <div class="field mb-2"><%= f.label :詳細情報 %>(必須)：<%= f.text_area :description %></div>
+  </div>
+  
+  <div>
+    <h3 class="mb-4">会社情報</h3>
+    
+    <div class="field mb-2"><%= f.label :会社名 %>(必須)：<%= f.text_field :corporateName %></div>
+    <div class="field mb-2"><%= f.label :会社ホームページ %>：<%= f.text_field :corporateUrl %></div>
+    <div class="field mb-2"><%= f.label :業種・事業内容 %>：<%= f.text_field :industry %></div>
+    <div class="field mb-2"><%= f.label :本社所在地 %>：<%= f.text_field :address %></div>
+    <div class="field mb-2"><%= f.label :会社紹介 %>：<%= f.text_area :introduction %></div>
+  </div>
+  
+  <%= f.submit "変更を保存", class: "btn btn-primary btn-lg" %>
+  
+<% end %>

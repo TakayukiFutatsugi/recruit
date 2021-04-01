@@ -1,0 +1,16 @@
+<h2 class="mb-5">応募一覧</h2>
+<% @entries.each do |entry| %>
+  <% if entry.job.user_id == current_user.id %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <div class="d-flex">
+          <p><%= entry.job.title %></p>
+          <p class="ml-auto"><%= entry.created_at %></p>
+        </div>
+        <p>氏名：<%= link_to entry.user.familyName + entry.user.lastName, user_path(entry.user) %></p>
+        <p>性別：<%= entry.user.gender %>　　生年月日：<%= entry.user.birthdate %>　　居住地：<%= entry.user.location %></p>
+      </div>
+    </div>
+  <% end %>
+ 
+<% end %>
